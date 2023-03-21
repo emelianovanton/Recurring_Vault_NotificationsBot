@@ -39,9 +39,7 @@ while True:
     week_number = now.isocalendar()[1]
     accumulated_sum = week_number * (week_number + 1) / 2
     # Check if it's Sunday and the time is 9:00 AM
-    if now.weekday() == 7 and now.hour == 11:
+    if now.weekday() == 7 and now.hour == 11 and now.minute == 0 and now.second == 0:
         send_reminder(week_number, accumulated_sum)
-        # Wait for 1 week before sending the next reminder
-        time.sleep(7 * 24 * 60 * 60)
 
 bot.polling(none_stop=True, interval=0)
