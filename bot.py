@@ -14,7 +14,7 @@ subscribed_users = {}
 @bot.message_handler(commands=['start'])
 def start_command(message):
     # Send a welcome message and instructions on how to subscribe to reminders
-    bot.send_message(message.chat.id,
+    bot.reply_to(message,
                      "Welcome to the Reminder Bot! To subscribe to weekly reminders, send the command /subscribe.")
 
 
