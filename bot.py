@@ -42,4 +42,4 @@ while True:
     if now.weekday() == 7 and now.hour == 11 and now.minute == 0 and now.second == 0:
         send_reminder(week_number, accumulated_sum)
 
-bot.polling(none_stop=True, interval=0)
+bot.infinity_polling()
