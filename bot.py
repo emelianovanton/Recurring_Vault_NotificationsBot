@@ -15,7 +15,7 @@ subscribed_users = {}
 def start_command(message):
     # Send a welcome message and instructions on how to subscribe to reminders
     bot.reply_to(message,
-                     "Welcome to the Reminder Bot! To subscribe to weekly reminders, send the command /subscribe.")
+                     "Welcome to the Reminder Bot! To subscribe to weekly reminders.")
 
 
 @bot.message_handler(commands=['subscribe'])
@@ -34,12 +34,12 @@ def send_reminder(week_number, accumulated_sum):
                                   f"Today's sum to send is {week_number} € ")
 
 
-while True:
-    now = datetime.datetime.now()
-    week_number = now.isocalendar()[1]
-    accumulated_sum = week_number * (week_number + 1) / 2
-    # Check if it's Sunday and the time is 9:00 AM
-    if now.weekday() == 7 and now.hour == 11 and now.minute == 0 and now.second == 0:
-        send_reminder(week_number, accumulated_sum)
+
+now = datetime.datetime.now()
+week_number = now.isocalendar()[1]
+accumulated_sum = week_number * (week_number + 1) / 2
+# Check if it's Sunday and the time is 9:00 AM
+if now.weekday() == 7 and now.hour == 11 and now.minute == 0 and now.second == 0:
+    send_reminder(week_number, accumulated_sum)
 
 bot.infinity_polling()
