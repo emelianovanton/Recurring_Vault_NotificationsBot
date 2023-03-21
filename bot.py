@@ -43,3 +43,5 @@ while True:
         send_reminder(week_number, accumulated_sum)
         # Wait for 1 week before sending the next reminder
         time.sleep(7 * 24 * 60 * 60)
+
+bot.polling(none_stop=True, interval=0)
